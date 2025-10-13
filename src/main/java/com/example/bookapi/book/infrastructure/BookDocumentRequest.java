@@ -12,14 +12,26 @@ public class BookDocumentRequest {
     @Getter
     public static class Save {
 
+        private String id;
         private String title;
+        private String description;
         private List<Author> authors;
         private List<Category> categories;
         private String isbn;
+        private Integer price;
         private LocalDateTime publishDate;
 
         public Book toDocument() {
-            return new Book(null, this.title, authors, categories, isbn, publishDate);
+            return new Book(
+                id,
+                title,
+                description,
+                authors,
+                categories,
+                price,
+                isbn,
+                publishDate
+            );
         }
     }
 
